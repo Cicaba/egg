@@ -6,5 +6,6 @@ module.exports = class Base extends Controller {
   }
   async base() {
     this.ctx.body = "请输入正确的地址!!!";
+    this.ctx.status = 200;
   }
 }
