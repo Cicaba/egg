@@ -26,7 +26,10 @@ module.exports = appInfo => {
   config.mongoose = {
     client: {
       url: 'mongodb://cicaba:515253@cicaba.top/cicaba',
-      options: {},
+      options: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      },
     },
   }
   // add your middleware config here
