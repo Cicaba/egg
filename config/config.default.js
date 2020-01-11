@@ -11,7 +11,10 @@ module.exports = appInfo => {
    * @type {Egg.EggAppConfig}
    **/
   const config = exports = {
-
+    jsonp = {
+      enable: true,
+      package: 'egg-jsonp',
+    }
   };
   config.cluster = {
     listen: {
