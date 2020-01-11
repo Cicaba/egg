@@ -20,14 +20,15 @@ module.exports = appInfo => {
       hostname: '0.0.0.0',
     }
   };
-  config.security = {
-    csrf: {
-      enable: false
-    },
-    domainWhiteList: ['*'] //白名单
-  };
+  // config.security = {
+  //   csrf: {
+  //     enable: false
+  //   },
+  //   domainWhiteList: ['*'] //白名单
+  // };
   config.cors = {
     origin: '*',
+    credentials: true, // 允许跨域请求携带cookies
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
   };
   // use for cookie sign key, should change to your own and keep security
