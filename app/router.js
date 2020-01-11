@@ -5,5 +5,5 @@
 module.exports = app => {
   const { router, controller } = app;
   router.get('/', controller.base.base);
-  router.get('/base/url', app.jsonp({ callback: 'fn' }), controller.base.url);
+  router.get('/base/url', app.jsonp(), controller.base.url);
 };
