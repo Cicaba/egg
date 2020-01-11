@@ -11,7 +11,7 @@ module.exports = appInfo => {
    * @type {Egg.EggAppConfig}
    **/
   const config = exports = {
-    jsonp = {
+    jsonp: {
       enable: true,
       package: 'egg-jsonp',
     }
