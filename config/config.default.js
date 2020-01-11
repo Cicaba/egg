@@ -16,8 +16,7 @@ module.exports = appInfo => {
       package: 'egg-jsonp',
     },
     static: {
-      prefix: '/static',
-      dir: path.join(appInfo.baseDir, 'app/public')
+      prefix: '/static'
     }
   };
   config.cluster = {
