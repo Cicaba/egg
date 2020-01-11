@@ -1,0 +1,43 @@
+﻿高级条件查询
+
+	语法1：db.collection.find({ "key" : value })    查找key=value的数据.
+	
+	语法2： db.collection.find({ "key" : { $gt: value } })    key > value
+	
+	语法3：db.collection.find({ "key" : { $lt: value } })    key < value
+	
+	语法4：db.collection.find({ "key" : { $gte: value } })    key >= value
+	
+	语法5：db.collection.find({ "key" : { $lte: value } })    key <= value
+	
+	语法6：db.collection.find({ "key" : { $gt: value1 , $lt: value2 } })   value1 < key <value2
+	
+	语法7：db.collection.find({ "key" : { $ne: value } })    key <> value  非
+	
+ 	语法8：db.collection.find({ "key" : { $mod : [ 10 , 1 ] } })    取模运算，条件相当于key % 10 == 1 即key除以10余数为1的
+ 		
+          语法9：db.collection.find({ "key" : { $in: [ 1, 2, 3 ] } })    属于，条件相当于key等于[ 1, 2, 3 ]中任何一个.
+           
+	语法10：db.collection.find({ "key" : { $nin: [ 1, 2, 3 ] } })    不属于，条件相当于key的值不属于[ 1, 2, 3 ]中任何一个。
+	
+	语法11：db.collection.find({ "key" : { $size: 1 } })    $size 数量、尺寸，条件相当于key对应的值的数量是1（值必须是数组）
+	
+	语法12：db.collection.find({ "key" : { $exists : true|false } })    
+    $exists 字段存在，true返回存在字段key的数据，false返回不存在字段key的数据
+    
+	语法13：db.collection.find({ $or : [{a : 1}, {b : 2} ] })  
+	符合两个条件中任意一个的数据。$or语法表示或的意思。 （注意：MongoDB 1.5.3后版本可用），符合条件a=1的或者符合条件b=2的数据都会查询出来。
+	
+	语法14:
+	db.collection.insert({"name":"test2",score:{"yy":80,"sx":79,"wy":95}})
+	
+	可以通过db.collection.find({"score.yy":80})		此数据的score对应的值是一个对象
+	
+排序语法:
+	db.collection.find().sort({ "key1" : -1 ,"key2" : 1 })    这里的1代表升序，-1代表降序
+
+	db.collection.find().skip(5)    控制返回结果跳过多少数量
+
+	db.collection.find().limit(5)    控制返回结果数量
+
+	db.collection.find().count()    count()返回结果集的条数

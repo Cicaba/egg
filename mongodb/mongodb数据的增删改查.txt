@@ -1,0 +1,54 @@
+﻿显示数据库列表的名字
+	show dbs
+	
+显示集合:
+	show collections
+	
+显示当前在哪个数据库:
+	db
+	
+创建数据库 
+	use dbname  
+		注意:数据库没数据的时候  (show dbs)不显示出来
+			如果已经有这个数据库,那么久使用这个数据库,如果没有,则创建一个数据库
+			
+	test:默认的数据库,当我们没有创建数据库的时候 ,我们插入的数据会插入到test这个数据库里面
+	
+		
+<-------增加数据----->
+    db.web.insert({"name":"张三", "age":10})  
+	db.web.save({"name":"老李"})    
+          区别:  insert() 插入数据的时候 ,如果存在这条数据了,会报错,插入失败
+          save() 插入数据的时候 ,如果存在这条数据了,不会报错,会修改(覆盖)这条数据
+    
+         在web集合中插入一条新数据，
+         	注意: 如果没有web这个集合，mongodb会自动创建,如果有这个集合,就往这个集合里面插入数据
+         	
+ 	
+	每条数据都有一个ID 这个ID 是唯一的   (用来在插入的时候判定数据是否在数据库里面存在,或者用于查询到这条数据)
+	
+
+<------删除数据------>
+	1、删除文档 
+	2、删除集合 
+	3、删除数据库
+	db.users.remove({})    删除users集合下所有数据
+	  db.users.remove({"name": "lecaf"})   删除users集合下name=”lecaf”的数据
+		
+	  db.users.drop()或db.runCommand({"drop":"users"})    删除集合users
+	  db.runCommand({"dropDatabase": 1})    删除当前数据库，注意 此处的1没加双引号。
+	  
+<-------查询数据:------>
+	db.users.find()    查找users集合中所有数据
+    db.users.findOne()    查找users集合中的第一条数据
+    db.users.find().pretty()	格式化查询到的数据
+
+
+<---------修改数据------->
+	  db.web.update({"name":"a1"}, {"age":10})  
+		第一个大括号里面是查找的条件
+		第二个大括号里面是修改后的数据
+	  db.web.update({"name":"a1"},{$set:{"age":10}})
+		保留以前的数据
+      修改集合的名称
+	  db.web.renameCollection()

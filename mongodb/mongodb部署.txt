@@ -1,0 +1,39 @@
+﻿mongodb安装的路径
+	C:\Program Files\MongoDB\Server\3.2\bin
+	
+mongo :
+最常用的命令:负责使用数据库的
+
+mongood : 
+负责启动数据库的
+
+
+
+第一步:
+在安装目录下 运行CMD  输入mongo
+
+第二步:配置环境变量   (能让mongodb的命令在任何目录下都可以使用);
+		C:\Program Files\MongoDB\Server\3.2\bin
+		
+第三步:创建文件夹
+1、在d盘建立一个文件夹mongodb，并且建立子文件夹db和log.
+2、在log目录下建立一个文件MongoDB.log ，后缀为.log.
+
+第四步:启动数据库
+mongod  --storageEngine mmapv1 --dbpath "c:\mongodb\data" --logpath "c:\mongodb\log\MongoDB.log"
+
+第五步:安装为windows服务(注意事项:运行cmd的时候必须以管理员的身份运行);
+
+	1) mongod  --storageEngine mmapv1 --dbpath "c:\mongodb\data" --logpath "c:\mongodb\log\MongoDB.log" --install --serviceName "MongoDB"
+
+                1.1
+                1.1) sc delete <服务名>
+                1.2) mongod -f <配置文件绝对路径> --auth --install --serviceName "MongoDB"
+
+	2) 启动服务 :net start MongoDB;
+	      停止服务: net stop MongoDB;
+	3) 删除 sc delete "服务名"
+	
+	--auth 开启权限验证
+	--bind_ip "172.27.0,xxx/xx.x" 指定ip访问
+	--bind_ip_all 开启所有ip访问权限

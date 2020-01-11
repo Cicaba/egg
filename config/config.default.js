@@ -20,6 +20,16 @@ module.exports = appInfo => {
       hostname: '0.0.0.0',
     }
   };
+  config.security = {
+    csrf: {
+      enable: false
+    },
+    domainWhiteList: ['*'] //白名单
+  };
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
+  };
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1578564067465_8799';
 
