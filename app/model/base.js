@@ -1,3 +1,4 @@
+// 数据库模型
 module.exports = app => {
   let mongoose = app.mongoose;
   let Schema = mongoose.Schema;
